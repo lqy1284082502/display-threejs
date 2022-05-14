@@ -9,8 +9,10 @@
 </template>
 
 <script lang="ts">
+  import { ElButton } from 'element-plus';
   export default {
     name: 'HomePage',
+    components: { ElButton },
     data() {
       return {
         list: [1, 2, 3, 4, 5, 6, 7, 8, 9],
