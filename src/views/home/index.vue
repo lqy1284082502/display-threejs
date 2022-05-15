@@ -1,9 +1,11 @@
 <template>
-  <router-view />
+  <div>1234</div>
 </template>
 
 <script>
   export default {
-    name: 'App',
+    name: 'IndexCom',
   };
 </script>
+
+<style scoped></style>
