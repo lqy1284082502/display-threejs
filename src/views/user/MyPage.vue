@@ -1,10 +1,11 @@
 <template>
-  <div class="container">123 </div>
+  <div>我的页面</div>
 </template>
 
 <script>
+  // TODO: 实现我的页面
   export default {
-    name: 'IndexCom',
+    name: 'MyPage',
   };
 </script>
 

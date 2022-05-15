@@ -1,1 +1,1 @@
-export { default as Layout } from './Layout/MainLayout.vue';
+export { default as MenuItem } from '@/components/layout/menuItem/index.vue';

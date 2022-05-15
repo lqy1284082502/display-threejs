@@ -55,6 +55,7 @@ module.exports = defineConfig({
     'vue/max-attributes-per-line': 'off', // 强制每行属性的最大数量
     // ESLint
     'no-use-before-define': 'off', // 禁止在变量定义之前使用它们
-    'space-before-function-paren': 'off', // 强制在 function的左括号之前使用一致的空格
+    'space-before-function-paren': 'off', // 强制在 function的左括号之前使用一致的空格,
+    'vue/multi-word-component-names': 'off', // 强制组件名称使用单词拼写法
   },
 });

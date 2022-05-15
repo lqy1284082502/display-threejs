@@ -1,10 +1,11 @@
 <template>
-  <div class="container">123 </div>
+  <div>登录</div>
 </template>
 
 <script>
+  // TODO: 完成登录页面
   export default {
-    name: 'IndexCom',
+    name: 'Login',
   };
 </script>
 

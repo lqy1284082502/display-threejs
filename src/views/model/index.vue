@@ -1,10 +1,11 @@
 <template>
-  <div class="container">123 </div>
+  <div>模型页面</div>
 </template>
 
 <script>
+  // TODO: 定义模型
   export default {
-    name: 'IndexCom',
+    name: 'Index',
   };
 </script>
 
