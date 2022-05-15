@@ -27,5 +27,7 @@
 <style scoped>
   .grid div {
     height: 25vh;
+    border-radius: 10px;
+    overflow: hidden;
   }
 </style>
