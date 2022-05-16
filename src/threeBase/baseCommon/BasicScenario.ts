@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import type { Scene, PerspectiveCamera, OrthographicCamera, Renderer, Mesh } from 'three';
 export interface BasicScenarioImp {
   // 挂载节点
@@ -10,6 +11,7 @@ export interface BasicScenarioImp {
   // 渲染器
   renderer: Renderer;
   cube: Mesh;
+  controls: OrbitControls;
   // 初始化场景
   initScenario(): void;
   // 初始化灯光
@@ -18,6 +20,8 @@ export interface BasicScenarioImp {
   initCamera(): void;
   // 初始化渲染器
   initRenderer(): void;
+  // 初始化控制器
+  initControls(): void;
   // 渲染
   render(): void;
   // 窗口变化
@@ -30,6 +34,7 @@ export default class BasicScenario implements BasicScenarioImp {
   scene: Scene;
   renderer: Renderer;
   cube: Mesh;
+  controls: OrbitControls;
   constructor(ref: HTMLElement) {
     this.refDom = ref;
     this.camera = new THREE.PerspectiveCamera(
@@ -45,6 +50,8 @@ export default class BasicScenario implements BasicScenarioImp {
     const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
     this.cube = new THREE.Mesh(geometry, material);
     this.scene.add(this.cube);
+
+    this.controls = new OrbitControls(this.camera, this.renderer.domElement);
     window.addEventListener('resize', this.resize.bind(this));
     // 初始化方法调用
     this.initCamera();
@@ -66,6 +73,7 @@ export default class BasicScenario implements BasicScenarioImp {
 
   initScenario(): void {
     this.scene.fog = new THREE.Fog(0xffffff, 10, 50);
+    this.scene.background = new THREE.Color(0x66ffcc);
   }
 
   render(): void {
@@ -80,5 +88,9 @@ export default class BasicScenario implements BasicScenarioImp {
     }
     this.camera.updateProjectionMatrix();
     this.renderer.setSize(this.refDom.clientWidth, this.refDom.clientHeight);
+  }
+  initControls() {
+    this.controls.minDistance = 1;
+    this.controls.maxDistance = 20;
   }
 }

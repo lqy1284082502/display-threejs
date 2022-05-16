@@ -1,33 +1,38 @@
 <template>
   <div class="container mx-auto">
-    <div class="grid gap-4 grid-cols-3">
-      <div :ref="'three' + item" v-for="item of list" :key="item" />
-      <div ref="three"></div>
-    </div>
+    <el-row :gutter="20">
+      <el-col v-for="item of list" :key="item" :xs="layout.xs" :sm="layout.sm" :md="layout.md">
+        <model-card class="model-card" />
+      </el-col>
+    </el-row>
   </div>
 </template>
 
 <script lang="ts">
-  import BasicScenario from '@/threeBase/baseCommon/BasicScenario';
+  import ModelCard from '@/views/home/modelCard/index.vue';
   export default {
     name: 'IndexCom',
+    components: {
+      ModelCard,
+    },
     data() {
       return {
         list: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+        layout: {
+          xs: 24,
+          sm: 12,
+          md: 8,
+        },
       };
-    },
-    mounted() {
-      this.list.forEach((item: number) => {
-        new BasicScenario(this.$refs['three' + item][0]);
-      });
     },
   };
 </script>
 
 <style scoped>
-  .grid div {
-    height: 25vh;
-    border-radius: 10px;
-    overflow: hidden;
+  .model-card {
+    height: 250px;
+  }
+  .el-row .el-col {
+    margin-bottom: 20px;
   }
 </style>
