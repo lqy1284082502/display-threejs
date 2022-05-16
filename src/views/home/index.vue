@@ -30,7 +30,7 @@
 
 <style scoped>
   .model-card {
-    height: 250px;
+    height: 25vh;
   }
   .el-row .el-col {
     margin-bottom: 20px;
